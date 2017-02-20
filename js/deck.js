@@ -25,7 +25,7 @@ module.exports = class Deck{
     shuffle(numberOfShuffles = 1){
         let i, j, k;
         let temp;
-        for (i = 0; i < numberOfShuffles; i++)
+        for (i = 0; i < numberOfShuffles; i++){
             for (j = 0; j < this._cards.length; j++) {
                 k = Math.floor(Math.random() * this._cards.length);
                 temp = this._cards[j];
@@ -42,17 +42,22 @@ module.exports = class Deck{
             }else{
                 throw new DeckException("getCardsFromBottom", `${numberOfCards} is greater than the length of the cards array`);
             }
-        }catch(exception){
+        }
+        catch(exception){
 
         }
     }
 
     getCardsFromTop(numberOfCards){
-        if(numberOfCards <= this._cards.length){
+        try{
+            if(numberOfCards <= this._cards.length){
 
-        }else{
-            throw new DeckException("getCardsFromTop", `${numberOfCards} is greater than the length of the cards array`);
+            }else{
+                throw new DeckException("getCardsFromTop", `${numberOfCards} is greater than the length of the cards array`);
+            }
         }
+        catch(exception){
 
+        }
     }
 }
