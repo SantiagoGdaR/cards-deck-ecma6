@@ -16,7 +16,7 @@ const privateFunctions = {
   }
 }
 
-module.exports = class DeckFactory{
+module.exports = class CardDeckFactory{
   static createFrenchSuitDeck(addJokers = true){
     let suits = [ "hearts", "diams", "clubs", "spades" ];
     let ranks = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A" ];

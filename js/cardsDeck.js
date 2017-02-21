@@ -1,4 +1,4 @@
-var DeckFactory = require('./deckFactory');
+var CardDeckFactory = require('./cardDeckFactory');
 
 module.exports = class CardsDeck{
     constructor(){
@@ -9,19 +9,19 @@ module.exports = class CardsDeck{
 
     //function to create a suit deck
     startFrenchSuitDeck(addJokers = true){
-        this._cards = DeckFactory.createFrenchSuitDeck(addJokers);
+        this._cards = CardDeckFactory.createFrenchSuitDeck(addJokers);
         return this._cards;
     }
 
     //function to create a spanish deck
     startSpanishDeck(addJokers = true){
-        this._cards = DeckFactory.createSpanishDeck(addJokers);
+        this._cards = CardDeckFactory.createSpanishDeck(addJokers);
         return this._cards;
     }
 
     //function to create a spanish deck
     startCustomDeck(suits, ranks, addJokers = true){
-        this._cards = DeckFactory.createCustomDeck(suits, ranks, addJokers);
+        this._cards = CardDeckFactory.createCustomDeck(suits, ranks, addJokers);
         return this._cards;
     }
 
