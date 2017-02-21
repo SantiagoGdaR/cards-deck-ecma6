@@ -69,3 +69,25 @@ describe('Custom Cards Deck', () => {
     expect(finded).not.toBeUndefined();
   });
 });
+
+describe('Shuffle', () => {
+  let cardsDeck;
+  let frenchSuiteCardsDeck;
+  beforeEach(function() {
+    cardsDeck = new CardsDeck();
+    frenchSuiteCardsDeck = cardsDeck.startFrenchSuitDeck();
+  });
+  it('test that random cards position changed', () => {
+    let card0 = frenchSuiteCardsDeck[0];
+    let card1 = frenchSuiteCardsDeck[1];
+    let card2 = frenchSuiteCardsDeck[2];
+    cardsDeck.shuffle(2);
+    let card0AfterShuffle = frenchSuiteCardsDeck[0];
+    let card1AfterShuffle  = frenchSuiteCardsDeck[1];
+    let card2AfterShuffle  = frenchSuiteCardsDeck[1];
+    
+    expect(card0.toString()).not.toBe(card0AfterShuffle.toString());
+    expect(card1.toString()).not.toBe(card1AfterShuffle.toString());
+    expect(card2.toString()).not.toBe(card2AfterShuffle.toString());
+  });
+});
