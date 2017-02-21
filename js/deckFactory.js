@@ -19,11 +19,11 @@ module.exports = class DeckFactory{
 
   _createDeck(suits, ranks, addJokers){
     var cards = [];
-    for( var s = 0; s < suits.length; s++ ) {
-        for( var n = 0; n < names.length; n++ ) {
-            cards.push(new Card(ranks[n], suits[s]));
-        }
-    }
+    suits.forEach(suit => {
+      ranks.forEach(rank => {
+        cards.push(new Card(rank, suit));
+      })
+    })
     if(addJokers){
       cards.push(new Card("joker", "joker"));
       cards.push(new Card("joker", "joker"));

@@ -1,6 +1,6 @@
 let DeckFactory = require('./deckFactory');
 
-module.exports = class Deck{
+module.exports = class CardsDeck{
     constructor(){
         this._cards = [];
     }
@@ -37,27 +37,47 @@ module.exports = class Deck{
 
     getCardsFromTheBottom(numberOfCards){
         try{
+            let cardsToReturn = [];
+            let cards = this._cards;
             if(numberOfCards <= this._cards.length){
-
-            }else{
+                cardsToReturn = this._cards.filter(card, index => {
+                    if(numberOfCards <= (index +1)){
+                        cards.splice(0, 1);
+                        return card;
+                    }
+                });
+            }
+            else{
                 throw new DeckException("getCardsFromBottom", `${numberOfCards} is greater than the length of the cards array`);
             }
+            this._cards = cards;
+            return cardsToReturn;
         }
         catch(exception){
-
+            console.error(exception.toString());
         }
     }
 
     getCardsFromTop(numberOfCards){
         try{
+            let cardsToReturn = [];
+            let cards = this._cards;
             if(numberOfCards <= this._cards.length){
-
-            }else{
+                cardsToReturn = this._cards.filter(card, index => {
+                    if(numberOfCards <= (index +1)){
+                        cards.splice((cards.length - 2), (cards.length -1));
+                        return card;
+                    }
+                });
+            }
+            else{
                 throw new DeckException("getCardsFromTop", `${numberOfCards} is greater than the length of the cards array`);
             }
+            this._cards = cards;
+            return cardsToReturn;
         }
         catch(exception){
-
+            console.error(exception.toString());
         }
     }
 }

@@ -2,10 +2,10 @@ var path = require('path');
 
 module.exports = {
   context: path.resolve('js'),
-	entry: './deck',
+	entry: './cardsDeck',
 	output: {
     path: path.resolve('build/'),
-  	filename: 'bundle.js'
+  	filename: 'cardsDeck.js'
   },
   module: {
     loaders: [
