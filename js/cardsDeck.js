@@ -8,14 +8,20 @@ module.exports = class CardsDeck{
     get cards(){ return this._cards };
 
     //function to create a suit deck
-    startFrenchSuitDeck(){
-        this._cards = DeckFactory.createFrenchSuitDeck();
+    startFrenchSuitDeck(addJokers = true){
+        this._cards = DeckFactory.createFrenchSuitDeck(addJokers);
         return this._cards;
     }
 
     //function to create a spanish deck
-    startSpanishDeck(){
-        this._cards = DeckFactory.createSpanishDeck();
+    startSpanishDeck(addJokers = true){
+        this._cards = DeckFactory.createSpanishDeck(addJokers);
+        return this._cards;
+    }
+
+    //function to create a spanish deck
+    startCustomDeck(suits, ranks, addJokers = true){
+        this._cards = DeckFactory.createCustomDeck(suits, ranks, addJokers);
         return this._cards;
     }
 
