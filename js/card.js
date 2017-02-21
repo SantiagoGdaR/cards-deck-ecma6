@@ -1,13 +1,13 @@
 module.exports = class User {
-  constructor(suit, number){
+  constructor(suit, rank){
     this._suit = suit;
-    this._number = number;
+    this._rank = rank;
   }
 
   get suit() { return this._suit };
-  get number() { return this._number };
+  get rank() { return this._rank };
 
   toString(){
-    return `${this._number} ${this._suit}`
+    return `${this._rank} ${this._suit}`
   }
 }

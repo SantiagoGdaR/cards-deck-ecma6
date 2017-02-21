@@ -1,4 +1,4 @@
-let Card = require('./card');
+var Card = require('./card');
 
 module.exports = class DeckFactory{
   static createFrenchSuitDeck(addJokers = true){
@@ -8,7 +8,7 @@ module.exports = class DeckFactory{
   }
 
   static createSpanishDeck(addJokers = true){
-    let suits = [ "cups", "swords", "golds", "clubs" ];
+    let suits = [ "cups", "swords", "coins", "clubs" ];
     let ranks = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   	return _createDeck(suits, ranks, addJokers);
   }

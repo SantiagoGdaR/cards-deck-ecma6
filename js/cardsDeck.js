@@ -1,4 +1,4 @@
-let DeckFactory = require('./deckFactory');
+var DeckFactory = require('./deckFactory');
 
 module.exports = class CardsDeck{
     constructor(){
