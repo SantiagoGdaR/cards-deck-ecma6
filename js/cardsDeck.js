@@ -38,19 +38,19 @@ module.exports = class CardsDeck{
     getCardsFromTheBottom(numberOfCards){
         try{
             let cardsToReturn = [];
-            let cards = this._cards;
             if(numberOfCards <= this._cards.length){
+                let cards = this._cards;
                 cardsToReturn = this._cards.filter(card, index => {
                     if(numberOfCards <= (index +1)){
                         cards.splice(0, 1);
                         return card;
                     }
                 });
+                this._cards = cards;
             }
             else{
                 throw new DeckException("getCardsFromBottom", `${numberOfCards} is greater than the length of the cards array`);
             }
-            this._cards = cards;
             return cardsToReturn;
         }
         catch(exception){
@@ -61,19 +61,19 @@ module.exports = class CardsDeck{
     getCardsFromTop(numberOfCards){
         try{
             let cardsToReturn = [];
-            let cards = this._cards;
             if(numberOfCards <= this._cards.length){
+                let cards = this._cards;
                 cardsToReturn = this._cards.filter(card, index => {
                     if(numberOfCards <= (index +1)){
                         cards.splice((cards.length - 2), (cards.length -1));
                         return card;
                     }
                 });
+                this._cards = cards;
             }
             else{
                 throw new DeckException("getCardsFromTop", `${numberOfCards} is greater than the length of the cards array`);
             }
-            this._cards = cards;
             return cardsToReturn;
         }
         catch(exception){
