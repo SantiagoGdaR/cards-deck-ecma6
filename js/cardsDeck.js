@@ -12,22 +12,19 @@ module.exports = class CardsDeck{
     //function to create a french suit deck
     startFrenchSuitDeck(addJokers = true){
         this._cards = CardDeckFactory.createFrenchSuitDeck(addJokers);
-        this._cardsInitalState = this._cards.splice();
-        return this._cards;
+        this._cardsInitalState = this._cards.slice();
     }
 
     //function to create a spanish deck
     startSpanishDeck(addJokers = true){
         this._cards = CardDeckFactory.createSpanishDeck(addJokers);
-        this._cardsInitalState = this._cards.splice();
-        return this._cards;
+        this._cardsInitalState = this._cards.slice();
     }
 
     //function to create a spanish deck
     startCustomDeck(suits, ranks, addJokers = true){
         this._cards = CardDeckFactory.createCustomDeck(suits, ranks, addJokers);
-        this._cardsInitalState = this._cards.splice();
-        return this._cards;
+        this._cardsInitalState = this._cards.slice();
     }
 
     //function to shuffle the deck
@@ -54,16 +51,7 @@ module.exports = class CardsDeck{
         try{
             let cardsToReturn = [];
             if(numberOfCards <= this._cards.length){
-                //copy of the array to remove items from
-                let cards = this._cards.splice();
-                cardsToReturn = this._cards.filter((card, index) => {
-                    if(numberOfCards >= (index +1)){
-                        cards.splice(0, 1);
-                        return card;
-                    }
-                });
-                //update the _cards array with the copy updated
-                this._cards = cards;
+                cardsToReturn = this._cards.splice(0, numberOfCards);
             }
             else{
                 throw new DeckException("getCardsFromTheTop", `${numberOfCards} is greater than the length of the cards array`);
@@ -83,18 +71,8 @@ module.exports = class CardsDeck{
         try{
             let cardsToReturn = [];
             if(numberOfCards <= this._cards.length){
-                //copy of the array to remove items from
-                let cards = this._cards.splice();
-                let positionToGetCardsFrom = (this._cards.length - numberOfCards) -1;
-                cardsToReturn = this._cards.filter((card, index) => {
-                    if(positionToGetCardsFrom <= index -1){
-                        cards.splice((cards.length - 2), (cards.length -1));
-                        return card;
-                    }
-                });
-                //update the _cards array with the copy updated
-                console.log(cards.length);
-                this._cards = cards;
+                let positionToGetCardsFrom = (this._cards.length - numberOfCards);
+                cardsToReturn = this._cards.splice(positionToGetCardsFrom, numberOfCards);
             }
             else{
                 throw new DeckException("getCardsFromBottom", `${numberOfCards} is greater than the length of the cards array`);
@@ -113,6 +91,6 @@ module.exports = class CardsDeck{
 
     //function to restore cards to the initial state
     resetCardDeck(){
-        this._cards = this._cardsInitalState.splice();
+        this._cards = this._cardsInitalState.slice();
     }
 }
