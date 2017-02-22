@@ -1,4 +1,4 @@
-var CardDeckFactory = require('./cardDeckFactory');
+var CardsDeckFactory = require('./cardsDeckFactory');
 var DeckException = require('./deckException');
 
 module.exports = class CardsDeck{
@@ -13,7 +13,7 @@ module.exports = class CardsDeck{
     //addJokers is a boolean "true" if the jokers should be added to the card deck.
     //default true.
     startFrenchSuitDeck(addJokers = true){
-        this._cards = CardDeckFactory.createFrenchSuitDeck(addJokers);
+        this._cards = CardsDeckFactory.createFrenchSuitDeck(addJokers);
         this._cardsInitalState = this._cards.slice();
     }
 
@@ -21,7 +21,7 @@ module.exports = class CardsDeck{
     //addJokers is a boolean "true" if the jokers should be added to the card deck.
     //default true.
     startSpanishDeck(addJokers = true){
-        this._cards = CardDeckFactory.createSpanishDeck(addJokers);
+        this._cards = CardsDeckFactory.createSpanishDeck(addJokers);
         this._cardsInitalState = this._cards.slice();
     }
 
@@ -30,7 +30,7 @@ module.exports = class CardsDeck{
     //ranks is an array representing the custom ranks for the card deck.
     //addJokers is a boolean "true" if the jokers should be added to the card deck.
     startCustomDeck(suits, ranks, addJokers = true){
-        this._cards = CardDeckFactory.createCustomDeck(suits, ranks, addJokers);
+        this._cards = CardsDeckFactory.createCustomDeck(suits, ranks, addJokers);
         this._cardsInitalState = this._cards.slice();
     }
 
