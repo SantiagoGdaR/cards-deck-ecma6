@@ -48,3 +48,32 @@ cardsDeck.remainingCards();
 cardsDeck.resetCardDeck();
 
 ```
+
+## Make it run
+
+1 - You must have installed NodeJS.
+
+2 - Clone the repository and run the command "npm install".
+
+3 - To see if the project is working properly run the unit testing with the command "npm run tests".
+
+4 - If you want a distribution version file of the project run the command "webpack -p" for a  minified version
+or only the command "webpack" if you don't want a minified version.
+If no errors you should find the distribution version on the folder ./build.
+
+## Project devDependencies
+
+```javascript
+"babel-core": "^6.22.1",
+"babel-loader": "^6.2.10",
+"babel-preset-es2015": "^6.22.0",
+"jasmine": "^2.5.3",
+"jasmine-core": "^2.5.2",
+"karma": "^1.5.0",
+"karma-chrome-launcher": "^2.0.0",
+"karma-jasmine": "^1.1.0",
+"karma-mocha-reporter": "^2.2.2",
+"karma-webpack": "^2.0.2",
+"webpack": "^2.2.1",
+"webpack-dev-server": "^2.3.0"
+```
