@@ -1,12 +1,9 @@
-module.exports = DeckException{
+module.exports = class DeckException{
   constructor(functionName, message){
     this._functionName = functionName;
-    this._ message = message;
+    this._message = message;
   }
   toString(){
-    `Error: exception in Deck API
-    Function: ${this._function}
-    Message: ${this._message}`
+    return `Error: exception in cardsDeck API. Function: ${this._functionName}. Message: ${this._message}`
   }
-
 }

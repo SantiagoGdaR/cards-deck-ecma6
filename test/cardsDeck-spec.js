@@ -70,24 +70,51 @@ describe('Custom Cards Deck', () => {
   });
 });
 
-describe('Shuffle', () => {
-  let cardsDeck;
-  let frenchSuiteCardsDeck;
-  beforeEach(function() {
-    cardsDeck = new CardsDeck();
-    frenchSuiteCardsDeck = cardsDeck.startFrenchSuitDeck();
-  });
+describe('Cards Deck Shuffle', () => {
   it('test that random cards position changed', () => {
+    let cardsDeck = new CardsDeck();
+    let frenchSuiteCardsDeck = cardsDeck.startFrenchSuitDeck();
     let card0 = frenchSuiteCardsDeck[0];
     let card1 = frenchSuiteCardsDeck[1];
     let card2 = frenchSuiteCardsDeck[2];
     cardsDeck.shuffle(2);
     let card0AfterShuffle = frenchSuiteCardsDeck[0];
     let card1AfterShuffle  = frenchSuiteCardsDeck[1];
-    let card2AfterShuffle  = frenchSuiteCardsDeck[1];
-    
-    expect(card0.toString()).not.toBe(card0AfterShuffle.toString());
-    expect(card1.toString()).not.toBe(card1AfterShuffle.toString());
-    expect(card2.toString()).not.toBe(card2AfterShuffle.toString());
+    let card2AfterShuffle  = frenchSuiteCardsDeck[2];
+
+    let stringBeforeShuffle = `${card0.toString()} ${card1.toString()} ${card2.toString()}`;
+    let stringAfterShuffle = `${card0AfterShuffle.toString()} ${card1AfterShuffle.toString()} ${card2AfterShuffle.toString()}`;
+
+    expect(stringBeforeShuffle).not.toBe(stringAfterShuffle);
+  });
+});
+
+describe('Cards Deck Get Cards From The Top', () => {
+  it('test that obtained cards are actually the cards from the top', () => {
+    let cardsDeck = new CardsDeck();
+    let frenchSuiteCardsDeck = cardsDeck.startFrenchSuitDeck();
+    let card0 = frenchSuiteCardsDeck[0];
+    let card1 = frenchSuiteCardsDeck[1];
+    let card2 = frenchSuiteCardsDeck[2];
+    let cardsFromTheTop = cardsDeck.getCardsFromTheTop(3);
+
+    expect(card0.toString()).toBe(cardsFromTheTop[0].toString());
+    expect(card1.toString()).toBe(cardsFromTheTop[1].toString());
+    expect(card2.toString()).toBe(cardsFromTheTop[2].toString());
+  });
+});
+
+describe('Cards Deck Get Cards From The Bottom', () => {
+  it('test that obtained cards are actually the cards from the bottom', () => {
+    let cardsDeck = new CardsDeck();
+    let frenchSuiteCardsDeck = cardsDeck.startFrenchSuitDeck();
+    let card0 = frenchSuiteCardsDeck[frenchSuiteCardsDeck.length - 3];
+    let card1 = frenchSuiteCardsDeck[frenchSuiteCardsDeck.length - 2];
+    let card2 = frenchSuiteCardsDeck[frenchSuiteCardsDeck.length - 1];
+    let cardsFromTheBottom = cardsDeck.getCardsFromTheBottom(3);
+
+    expect(card0.toString()).toBe(cardsFromTheBottom[0].toString());
+    expect(card1.toString()).toBe(cardsFromTheBottom[1].toString());
+    expect(card2.toString()).toBe(cardsFromTheBottom[2].toString());
   });
 });

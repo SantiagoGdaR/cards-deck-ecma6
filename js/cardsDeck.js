@@ -1,4 +1,5 @@
 var CardDeckFactory = require('./cardDeckFactory');
+var DeckException = require('./deckException');
 
 module.exports = class CardsDeck{
     constructor(){
@@ -26,7 +27,7 @@ module.exports = class CardsDeck{
     }
 
     //function to shuffle the deck
-    //numberOfShuffles defines how many times de array is shuffle
+    //numberOfShuffles defines how many times de array is shuffle.
     //default 1
     shuffle(numberOfShuffles = 1){
         let i, j, k;
@@ -41,21 +42,27 @@ module.exports = class CardsDeck{
         }
     }
 
-    getCardsFromTheBottom(numberOfCards){
+    //function to obtain numberOfCards cards
+    //from the top of the cards deck.
+    //numberOfCards is the number of cards that the user wants
+    //to obtain from the cards deck. 
+    getCardsFromTheTop(numberOfCards){
         try{
             let cardsToReturn = [];
             if(numberOfCards <= this._cards.length){
-                let cards = this._cards;
-                cardsToReturn = this._cards.filter(card, index => {
-                    if(numberOfCards <= (index +1)){
+                //copy of the array to remove items from
+                let cards = this._cards.splice();
+                cardsToReturn = this._cards.filter((card, index) => {
+                    if(numberOfCards >= (index +1)){
                         cards.splice(0, 1);
                         return card;
                     }
                 });
+                //update the _cards array with the copy updated
                 this._cards = cards;
             }
             else{
-                throw new DeckException("getCardsFromBottom", `${numberOfCards} is greater than the length of the cards array`);
+                throw new DeckException("getCardsFromTheTop", `${numberOfCards} is greater than the length of the cards array`);
             }
             return cardsToReturn;
         }
@@ -64,21 +71,29 @@ module.exports = class CardsDeck{
         }
     }
 
-    getCardsFromTop(numberOfCards){
+    //function to obtain numberOfCards cards
+    //from the bottom of the cards deck.
+    //numberOfCards is the number of cards that the user wants
+    //to obtain from the cards deck.
+    getCardsFromTheBottom(numberOfCards){
         try{
             let cardsToReturn = [];
             if(numberOfCards <= this._cards.length){
-                let cards = this._cards;
-                cardsToReturn = this._cards.filter(card, index => {
-                    if(numberOfCards <= (index +1)){
+                //copy of the array to remove items from
+                let cards = this._cards.splice();
+                let positionToGetCardsFrom = (this._cards.length - numberOfCards) -1;
+                cardsToReturn = this._cards.filter((card, index) => {
+                    if(positionToGetCardsFrom <= index -1){
                         cards.splice((cards.length - 2), (cards.length -1));
+                        console.log(card.toString());
                         return card;
                     }
                 });
+                //update the _cards array with the copy updated
                 this._cards = cards;
             }
             else{
-                throw new DeckException("getCardsFromTop", `${numberOfCards} is greater than the length of the cards array`);
+                throw new DeckException("getCardsFromBottom", `${numberOfCards} is greater than the length of the cards array`);
             }
             return cardsToReturn;
         }
