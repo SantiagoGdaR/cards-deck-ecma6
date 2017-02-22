@@ -1,7 +1,7 @@
 {
-  "name": "webpack-test",
+  "name": "cardsDeck",
   "version": "1.0.0",
-  "description": "testing webpack",
+  "description": "cards deck implemented with ecmaScript 6",
   "scripts": {
     "start": "webpack-dev-server",
     "tests": "karma start"
