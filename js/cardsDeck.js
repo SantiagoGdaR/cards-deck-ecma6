@@ -4,25 +4,29 @@ var DeckException = require('./deckException');
 module.exports = class CardsDeck{
     constructor(){
         this._cards = [];
+        this._cardsInitalState = [];
     }
 
     get cards(){ return this._cards };
 
-    //function to create a suit deck
+    //function to create a french suit deck
     startFrenchSuitDeck(addJokers = true){
         this._cards = CardDeckFactory.createFrenchSuitDeck(addJokers);
+        this._cardsInitalState = this._cards.splice();
         return this._cards;
     }
 
     //function to create a spanish deck
     startSpanishDeck(addJokers = true){
         this._cards = CardDeckFactory.createSpanishDeck(addJokers);
+        this._cardsInitalState = this._cards.splice();
         return this._cards;
     }
 
     //function to create a spanish deck
     startCustomDeck(suits, ranks, addJokers = true){
         this._cards = CardDeckFactory.createCustomDeck(suits, ranks, addJokers);
+        this._cardsInitalState = this._cards.splice();
         return this._cards;
     }
 
@@ -45,7 +49,7 @@ module.exports = class CardsDeck{
     //function to obtain numberOfCards cards
     //from the top of the cards deck.
     //numberOfCards is the number of cards that the user wants
-    //to obtain from the cards deck. 
+    //to obtain from the cards deck.
     getCardsFromTheTop(numberOfCards){
         try{
             let cardsToReturn = [];
@@ -85,11 +89,11 @@ module.exports = class CardsDeck{
                 cardsToReturn = this._cards.filter((card, index) => {
                     if(positionToGetCardsFrom <= index -1){
                         cards.splice((cards.length - 2), (cards.length -1));
-                        console.log(card.toString());
                         return card;
                     }
                 });
                 //update the _cards array with the copy updated
+                console.log(cards.length);
                 this._cards = cards;
             }
             else{
@@ -100,5 +104,15 @@ module.exports = class CardsDeck{
         catch(exception){
             console.error(exception.toString());
         }
+    }
+
+    //function that return the amount of cards left
+    remainingCards(){
+        return this._cards.length;
+    }
+
+    //function to restore cards to the initial state
+    resetCardDeck(){
+        this._cards = this._cardsInitalState.splice();
     }
 }

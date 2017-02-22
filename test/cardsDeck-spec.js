@@ -118,3 +118,13 @@ describe('Cards Deck Get Cards From The Bottom', () => {
     expect(card2.toString()).toBe(cardsFromTheBottom[2].toString());
   });
 });
+
+describe('Cards Deck Remaining Cards', () => {
+  it('test that the remaining cards length is the expected', () => {
+    let cardsDeck = new CardsDeck();
+    let frenchSuiteCardsDeck = cardsDeck.startFrenchSuitDeck();
+    let cardsFromTheBottom = cardsDeck.getCardsFromTheBottom(2);
+    let remainingCards = cardsDeck.remainingCards();
+    expect(remainingCards).toBe(52);
+  });
+});
