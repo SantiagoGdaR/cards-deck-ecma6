@@ -1,5 +1,8 @@
 var Card = require('./card');
 
+//constant containing an object with
+//the private functions use by
+//card deck factory.
 const privateFunctions = {
   _createDeck(suits, ranks, addJokers){
     var cards = [];

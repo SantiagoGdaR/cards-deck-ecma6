@@ -10,18 +10,25 @@ module.exports = class CardsDeck{
     get cards(){ return this._cards };
 
     //function to create a french suit deck
+    //addJokers is a boolean "true" if the jokers should be added to the card deck.
+    //default true.
     startFrenchSuitDeck(addJokers = true){
         this._cards = CardDeckFactory.createFrenchSuitDeck(addJokers);
         this._cardsInitalState = this._cards.slice();
     }
 
     //function to create a spanish deck
+    //addJokers is a boolean "true" if the jokers should be added to the card deck.
+    //default true.
     startSpanishDeck(addJokers = true){
         this._cards = CardDeckFactory.createSpanishDeck(addJokers);
         this._cardsInitalState = this._cards.slice();
     }
 
-    //function to create a spanish deck
+    //function to create a custom deck
+    //suits is an array representing the custom suits for the card deck.
+    //ranks is an array representing the custom ranks for the card deck.
+    //addJokers is a boolean "true" if the jokers should be added to the card deck.
     startCustomDeck(suits, ranks, addJokers = true){
         this._cards = CardDeckFactory.createCustomDeck(suits, ranks, addJokers);
         this._cardsInitalState = this._cards.slice();
@@ -29,7 +36,7 @@ module.exports = class CardsDeck{
 
     //function to shuffle the deck
     //numberOfShuffles defines how many times de array is shuffle.
-    //default 1
+    //default 1.
     shuffle(numberOfShuffles = 1){
         let i, j, k;
         let temp;
@@ -84,7 +91,7 @@ module.exports = class CardsDeck{
         }
     }
 
-    //function that return the amount of cards left
+    //function that return the amount of cards left in the deck
     remainingCards(){
         return this._cards.length;
     }
