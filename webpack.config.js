@@ -19,9 +19,6 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: 'public'
-  },
   resolve: {
     extensions: ['*', '.js']
   },
