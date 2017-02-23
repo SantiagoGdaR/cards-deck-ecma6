@@ -1,4 +1,4 @@
-module.exports = class User {
+module.exports = class Card {
   constructor(suit, rank){
     this._suit = suit;
     this._rank = rank;
