@@ -163,7 +163,7 @@ describe('Cards Deck Reset', () => {
     let cardsDeck = new CardsDeck();
     cardsDeck.startFrenchSuitDeck();
     cardsDeck.getCardsFromTheBottom(3);
-    cardsDeck.resetCardDeck();
+    cardsDeck.resetCardsDeck();
     expect(cardsDeck.cards.length).toBe(54);
   });
 });

@@ -4,7 +4,8 @@
   "description": "cards deck implemented with ecmaScript 6",
   "scripts": {
     "start": "webpack-dev-server",
-    "tests": "karma start"
+    "tests": "karma start",
+    "example": "webpack-dev-server --config example/webpack-example.config.js -p"
   },
   "author": "SantiagoGdaR",
   "license": "ISC",

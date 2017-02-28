@@ -97,7 +97,7 @@ module.exports = class CardsDeck{
     }
 
     //function to restore cards to the initial state
-    resetCardDeck(){
+    resetCardsDeck(){
         this._cards = this._cardsInitalState.slice();
     }
 }
