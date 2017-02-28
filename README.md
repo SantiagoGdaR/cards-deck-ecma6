@@ -69,7 +69,9 @@ If no errors you should find the distribution version on the folder ./build.
 
 In the example project you are going to find examples of the usage of the cardsDeck Api.
 In order to run the demo project you must:
+
 1 - Run the command "webpack --config example/webpack-example.config.js" to generate the build files.
+
 2 - Run the command "npm run example" from the root folder to start the example.
 
 
