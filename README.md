@@ -92,8 +92,12 @@ In order to run the demo project you must:
 Dependencies "Why?..." one by one:
 
 **babel** - We need babel so we can write code in ecmaScript 6 and transpile it to ecma 5 using webpack.
+
 **webpack** - We need webpack since we are using it to configure and generate the builds.
+
 **webpack-dev-server** - We use the webpack-dev-server to test the application and run the example project.
+
 **jasmine** - We use jasmine to create the unit testing code.
+
 **karma** - We use karma to run the unit testing. We also use the mocha reporter to generate a better report
 of unit testing the result. We use the chrome launcher to automatically run chrome to run the unit testing.
