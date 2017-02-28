@@ -102,4 +102,4 @@ Dependencies "Why?..." one by one:
 **jasmine** - We use jasmine to create the unit testing code.
 
 **karma** - We use karma to run the unit testing. We also use the mocha reporter to generate a better report
-of unit testing the result. We use the chrome launcher to automatically run chrome to run the unit testing.
+of the unit testing result. We use the chrome launcher to automatically run chrome to run the unit testing.
